@@ -1,0 +1,140 @@
+/*
+*   Stars Rating Styles
+
+
+#rate-it {
+    display: none !important;
+}
+
+.rating-stars {
+    font-size: 15px;
+}
+
+.rating-stars i {
+    margin-right: 2px;
+}
+
+.rating-stars i.rated {
+    color: #EA923A;
+}
+
+.stars-avg-rating {
+    text-align: center; 
+    font-size: 18px;
+    margin: 20px 0;
+    clear: both;
+}
+
+.stars-avg-rating .rating-stars {
+    font-size: 18px;
+    margin-right: 10px;
+
+}
+*/
+
+
+/*  
+ *  Pure CSS star rating that works without reversing order
+ *  of inputs
+ *  -------------------------------------------------------
+ *  NOTE: For the styling to work, there needs to be a radio
+ *        input selected by default. There also needs to be a
+ *        radio input before the first star, regardless of
+ *        whether you offer a 'no rating' or 0 stars option
+ *  
+ *  This codepen uses FontAwesome icons
+ */
+
+
+/* use display:inline-flex to prevent whitespace issues. alternatively, you can put all the children of .rating-group on a single line */
+
+.rating-group,
+.rating-group-fix {
+    display: inline-flex;
+}
+
+
+/* make hover effect work properly in IE */
+
+.rating__icon {
+    pointer-events: none;
+}
+
+
+/* hide radio inputs */
+
+.rating__input {
+    position: absolute !important;
+    left: -9999px !important;
+}
+
+
+/* set icon padding and size */
+
+.rating__label {
+    cursor: pointer;
+    /* if you change the left/right padding, update the margin-right property of .rating__label--half as well. */
+    padding: 0 1.4em;
+    font-size: 2rem;
+}
+
+.rating__label_static {
+    /* if you change the left/right padding, update the margin-right property of .rating__label--half as well. */
+    padding: 0 1.4em;
+    font-size: 2rem;
+}
+
+
+/* add padding and positioning to half star labels */
+
+.rating__label--half {
+    padding-right: 0;
+    margin-right: -1.9em;
+    z-index: 2;
+}
+
+.rating__label_static--half {
+    padding-right: 0;
+    margin-right: -1.9em;
+    z-index: 2;
+}
+
+
+/* set default star color */
+
+.rating__icon--star {
+    color: orange;
+}
+
+
+/* if any input is checked, make its following siblings grey */
+
+.rating__input:checked~.rating__label .rating__icon--star,
+.rating__input:checked~.rating__label_static .rating__icon--star {
+    color: #ddd;
+}
+
+
+/* make all stars orange on rating group hover */
+
+.rating-group:hover .rating__label .rating__icon--star,
+.rating-group:hover .rating__label--half .rating__icon--star,
+.rating-group:hover .rating__label_static .rating__icon--star,
+.rating-group:hover .rating__label_static--half .rating__icon--star {
+    color: orange;
+}
+
+
+/* make hovered input's following siblings grey on hover */
+
+.rating__input:hover~.rating__label .rating__icon--star,
+.rating__input:hover~.rating__label--half .rating__icon--star {
+    color: #ddd;
+}
+
+
+/* make none icon grey on rating group hover */
+
+.rating-group:hover .rating__input--none:not(:hover)+.rating__label .rating__icon--none {
+    color: #eee;
+}
