@@ -1,5 +1,5 @@
 {
-    "name": "paksonenko/stars-rating",
+    "name": "paksonenko/wp-stars-rating",
     "description": "WP plugin for comments with avarage rating from API's endpoint",
     "type": "wordpress-plugin",
     "license": "GPL-2.0-only",
